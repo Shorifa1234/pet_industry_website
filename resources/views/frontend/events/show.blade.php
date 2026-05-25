@@ -1,0 +1,42 @@
+﻿@extends('layouts.app')
+@section('title', $event->title)
+@section('content')
+<div style="background:var(--primary);color:#fff;padding:25px 0;">
+    <div class="container">
+        <span style="background:var(--secondary);color:#fff;font-size:11px;padding:3px 12px;border-radius:3px;text-transform:uppercase;font-weight:700;">{{ $event->event_type }}</span>
+        <h1 style="font-size:26px;font-weight:700;margin:10px 0 5px;">{{ $event->title }}</h1>
+        <div style="font-size:13px;opacity:0.85;">
+            <i class="fas fa-calendar me-1"></i>{{ $event->start_date->format('F j, Y') }}
+            @if($event->end_date) &ndash; {{ $event->end_date->format('F j, Y') }} @endif
+            @if($event->city || $event->country) &nbsp;|&nbsp; <i class="fas fa-map-marker-alt me-1"></i>{{ $event->city }}{{ $event->country ? ', '.$event->country : '' }} @endif
+        </div>
+    </div>
+</div>
+<div class="container py-4">
+    <div class="row">
+        <div class="col-lg-8">
+            @if($event->featured_image)<img src="{{ asset('storage/'.$event->featured_image) }}" class="img-fluid rounded mb-4" style="width:100%;max-height:400px;object-fit:cover;" alt="{{ $event->title }}">@endif
+            <div style="font-size:15px;line-height:1.8;">{!! $event->description ?? $event->short_description !!}</div>
+        </div>
+        <div class="col-lg-4">
+            <div class="sidebar-widget">
+                <h5><i class="fas fa-info-circle me-2"></i>Event Details</h5>
+                <table class="table table-sm" style="font-size:13px;">
+                    <tr><td style="color:var(--text-muted);width:40%;">Date</td><td><strong>{{ $event->start_date->format('M j, Y') }}</strong></td></tr>
+                    @if($event->end_date)<tr><td style="color:var(--text-muted);">End Date</td><td>{{ $event->end_date->format('M j, Y') }}</td></tr>@endif
+                    @if($event->venue)<tr><td style="color:var(--text-muted);">Venue</td><td>{{ $event->venue }}</td></tr>@endif
+                    @if($event->city)<tr><td style="color:var(--text-muted);">Location</td><td>{{ implode(', ', array_filter([$event->city, $event->country])) }}</td></tr>@endif
+                    @if($event->organizer)<tr><td style="color:var(--text-muted);">Organizer</td><td>{{ $event->organizer }}</td></tr>@endif
+                    <tr><td style="color:var(--text-muted);">Fee</td><td>{{ $event->is_free ? '<span class="badge bg-success">FREE</span>' : '$'.number_format($event->price,2) }}</td></tr>
+                </table>
+                @if($event->registration_url)
+                <a href="{{ $event->registration_url }}" target="_blank" class="btn btn-primary w-100"><i class="fas fa-user-plus me-2"></i>Register Now</a>
+                @endif
+                @if($event->website_url)
+                <a href="{{ $event->website_url }}" target="_blank" class="btn btn-outline-primary w-100 mt-2"><i class="fas fa-external-link-alt me-2"></i>Event Website</a>
+                @endif
+            </div>
+        </div>
+    </div>
+</div>
+@endsection
