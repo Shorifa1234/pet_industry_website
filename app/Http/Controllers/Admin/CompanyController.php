@@ -32,22 +32,20 @@ class CompanyController extends Controller
         return redirect()->route('admin.companies.index')->with('success', 'Company created successfully.');
     }
 
-    public function show($id)
+    public function show(Company $company)
     {
-        $company = Company::with('products')->findOrFail($id);
+        $company->load('products');
         return view('admin.companies.show', compact('company'));
     }
 
-    public function edit($id)
+    public function edit(Company $company)
     {
-        $company = Company::findOrFail($id);
         return view('admin.companies.edit', compact('company'));
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request, Company $company)
     {
         $request->validate(['name' => 'required|string|max:255']);
-        $company = Company::findOrFail($id);
         $data = $request->all();
         if ($request->hasFile('logo')) {
             $data['logo'] = $request->file('logo')->store('companies', 'public');
@@ -56,9 +54,9 @@ class CompanyController extends Controller
         return redirect()->route('admin.companies.index')->with('success', 'Company updated successfully.');
     }
 
-    public function destroy($id)
+    public function destroy(Company $company)
     {
-        Company::findOrFail($id)->delete();
+        $company->delete();
         return redirect()->route('admin.companies.index')->with('success', 'Company deleted successfully.');
     }
 }

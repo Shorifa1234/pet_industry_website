@@ -4,17 +4,14 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Event;
+use Illuminate\Support\Str;
 
 class EventController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        $events = \App\Models\Event::latest()->paginate(15);
+        $events = Event::latest()->paginate(15);
         return view('admin.events.index', compact('events'));
     }
 
@@ -27,29 +24,27 @@ class EventController extends Controller
     {
         $request->validate(['title' => 'required|string|max:255', 'start_date' => 'required|date']);
         $data = $request->all();
-        $data['slug'] = \Illuminate\Support\Str::slug($request->title) . '-' . time();
+        $data['slug'] = Str::slug($request->title) . '-' . time();
         if ($request->hasFile('featured_image')) {
             $data['featured_image'] = $request->file('featured_image')->store('events', 'public');
         }
-        \App\Models\Event::create($data);
+        Event::create($data);
         return redirect()->route('admin.events.index')->with('success', 'Event created successfully.');
     }
 
-    public function show($id)
+    public function show(Event $event)
     {
         return redirect()->route('admin.events.index');
     }
 
-    public function edit($id)
+    public function edit(Event $event)
     {
-        $event = \App\Models\Event::findOrFail($id);
         return view('admin.events.edit', compact('event'));
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request, Event $event)
     {
         $request->validate(['title' => 'required|string|max:255', 'start_date' => 'required|date']);
-        $event = \App\Models\Event::findOrFail($id);
         $data = $request->all();
         if ($request->hasFile('featured_image')) {
             $data['featured_image'] = $request->file('featured_image')->store('events', 'public');
@@ -58,9 +53,9 @@ class EventController extends Controller
         return redirect()->route('admin.events.index')->with('success', 'Event updated successfully.');
     }
 
-    public function destroy($id)
+    public function destroy(Event $event)
     {
-        \App\Models\Event::findOrFail($id)->delete();
+        $event->delete();
         return redirect()->route('admin.events.index')->with('success', 'Event deleted successfully.');
     }
 }

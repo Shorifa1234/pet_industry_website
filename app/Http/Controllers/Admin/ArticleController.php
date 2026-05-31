@@ -49,20 +49,18 @@ class ArticleController extends Controller
         return redirect()->route('admin.articles.index')->with('success', 'Article created successfully.');
     }
 
-    public function show($id)
+    public function show(Article $article)
     {
-        $article = Article::findOrFail($id);
         return view('admin.articles.show', compact('article'));
     }
 
-    public function edit($id)
+    public function edit(Article $article)
     {
-        $article = Article::findOrFail($id);
         $categories = Category::where('type', 'article')->where('is_active', true)->get();
         return view('admin.articles.edit', compact('article', 'categories'));
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request, Article $article)
     {
         $request->validate([
             'title' => 'required|string|max:255',
@@ -71,7 +69,6 @@ class ArticleController extends Controller
             'status' => 'required|in:draft,published,archived',
         ]);
 
-        $article = Article::findOrFail($id);
         $data = $request->all();
 
         if ($request->hasFile('featured_image')) {
@@ -87,9 +84,9 @@ class ArticleController extends Controller
         return redirect()->route('admin.articles.index')->with('success', 'Article updated successfully.');
     }
 
-    public function destroy($id)
+    public function destroy(Article $article)
     {
-        Article::findOrFail($id)->delete();
+        $article->delete();
         return redirect()->route('admin.articles.index')->with('success', 'Article deleted successfully.');
     }
 }
