@@ -20,7 +20,7 @@ class ProductController extends Controller
 
     public function create()
     {
-        $categories = \App\Models\Category::where('is_active', true)->get();
+        $categories = \App\Models\Category::where('type', 'product')->where('is_active', true)->get();
         $companies = \App\Models\Company::where('status', 'active')->get();
         return view('admin.products.create', compact('categories', 'companies'));
     }
@@ -45,7 +45,7 @@ class ProductController extends Controller
     public function edit($id)
     {
         $product = \App\Models\Product::findOrFail($id);
-        $categories = \App\Models\Category::where('is_active', true)->get();
+        $categories = \App\Models\Category::where('type', 'product')->where('is_active', true)->get();
         $companies = \App\Models\Company::where('status', 'active')->get();
         return view('admin.products.edit', compact('product', 'categories', 'companies'));
     }

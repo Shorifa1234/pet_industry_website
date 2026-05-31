@@ -17,6 +17,7 @@ class Product extends Model
 
     protected $casts = [
         'is_featured' => 'boolean',
+        'gallery' => 'array',
     ];
 
     public function category()

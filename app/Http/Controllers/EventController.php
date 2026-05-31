@@ -27,6 +27,9 @@ class EventController extends Controller
 
     public function show(Event $event)
     {
+        if ($event->status === 'cancelled') {
+            abort(404);
+        }
         return view('frontend.events.show', compact('event'));
     }
 }
