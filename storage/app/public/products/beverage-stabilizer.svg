@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="600" height="400">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a1628"/><stop offset="100%" style="stop-color:#0d2137"/>
+    </linearGradient>
+    <linearGradient id="liquid" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:rgba(52,152,219,0.9)"/><stop offset="100%" style="stop-color:rgba(41,128,185,0.7)"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="400" fill="url(#bg)"/>
+  <!-- Bubbles background -->
+  <g fill="rgba(52,152,219,0.1)" stroke="rgba(52,152,219,0.2)" stroke-width="1">
+    <circle cx="80"  cy="300" r="30"/><circle cx="120" cy="200" r="20"/><circle cx="60"  cy="150" r="15"/>
+    <circle cx="500" cy="280" r="25"/><circle cx="530" cy="180" r="18"/><circle cx="480" cy="120" r="12"/>
+    <circle cx="200" cy="50"  r="10"/><circle cx="400" cy="40"  r="8"/>
+  </g>
+  <!-- Test tubes / vials left -->
+  <g transform="translate(70, 80)" opacity="0.8">
+    <rect x="0"  y="0"  width="22" height="160" rx="11" fill="rgba(52,152,219,0.2)" stroke="rgba(52,152,219,0.4)" stroke-width="1.5"/>
+    <rect x="0"  y="80" width="22" height="80"  rx="11" fill="url(#liquid)" opacity="0.7"/>
+    <rect x="30" y="20" width="22" height="140" rx="11" fill="rgba(52,152,219,0.2)" stroke="rgba(52,152,219,0.4)" stroke-width="1.5"/>
+    <rect x="30" y="60" width="22" height="100" rx="11" fill="url(#liquid)" opacity="0.8"/>
+    <rect x="60" y="10" width="22" height="150" rx="11" fill="rgba(52,152,219,0.2)" stroke="rgba(52,152,219,0.4)" stroke-width="1.5"/>
+    <rect x="60" y="50" width="22" height="110" rx="11" fill="url(#liquid)" opacity="0.6"/>
+  </g>
+  <!-- Main container -->
+  <g transform="translate(185, 30)">
+    <!-- Container body -->
+    <rect x="0" y="30" width="230" height="290" rx="10" fill="rgba(52,152,219,0.15)" stroke="rgba(52,152,219,0.35)" stroke-width="2"/>
+    <!-- Liquid fill -->
+    <rect x="2" y="180" width="226" height="138" rx="9" fill="url(#liquid)" opacity="0.3"/>
+    <!-- Waves -->
+    <path d="M2,182 Q30,172 58,182 Q86,192 114,182 Q142,172 170,182 Q198,192 226,182" fill="none" stroke="rgba(52,152,219,0.5)" stroke-width="2"/>
+    <!-- Cap -->
+    <rect x="40" y="0" width="150" height="32" rx="8" fill="rgba(52,152,219,0.6)" stroke="rgba(52,152,219,0.4)" stroke-width="1.5"/>
+    <rect x="52" y="6" width="126" height="20" rx="5" fill="rgba(255,255,255,0.1)"/>
+    <text x="115" y="21" font-family="Arial" font-size="9" fill="white" text-anchor="middle" font-weight="bold">BEVERAGE GRADE</text>
+    <!-- Label -->
+    <rect x="15" y="55" width="200" height="115" rx="6" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+    <rect x="15" y="55" width="200" height="38" rx="6" fill="rgba(52,152,219,0.4)"/>
+    <text x="115" y="72"  font-family="Arial" font-size="11" fill="white" text-anchor="middle" font-weight="900">STABILIZER</text>
+    <text x="115" y="85"  font-family="Arial" font-size="9"  fill="rgba(255,255,255,0.85)" text-anchor="middle" font-weight="bold">SYSTEM</text>
+    <text x="115" y="95"  font-family="Arial" font-size="7"  fill="rgba(255,255,255,0.6)" text-anchor="middle">for beverages</text>
+    <!-- Features -->
+    <g font-family="Arial" font-size="8" fill="rgba(255,255,255,0.7)">
+      <text x="25" y="116">⬡ Improves mouthfeel</text>
+      <text x="25" y="129">⬡ Extended shelf life</text>
+      <text x="25" y="142">⬡ pH stable 3.0–7.5</text>
+      <text x="25" y="155">⬡ Heat &amp; cold stable</text>
+    </g>
+    <!-- Dosage badge -->
+    <rect x="130" y="200" width="90" height="40" rx="6" fill="rgba(52,152,219,0.3)" stroke="rgba(52,152,219,0.5)" stroke-width="1"/>
+    <text x="175" y="216" font-family="Arial" font-size="8"  fill="rgba(255,255,255,0.6)" text-anchor="middle">DOSAGE</text>
+    <text x="175" y="233" font-family="Arial" font-size="14" fill="#3498db" text-anchor="middle" font-weight="900">0.5%</text>
+    <!-- Weight -->
+    <text x="115" y="295" font-family="Arial" font-size="20" fill="rgba(255,255,255,0.3)" text-anchor="middle" font-weight="900">10 KG</text>
+  </g>
+  <!-- Test tubes right -->
+  <g transform="translate(455, 100)" opacity="0.7">
+    <rect x="0"  y="0"  width="20" height="140" rx="10" fill="rgba(52,152,219,0.2)" stroke="rgba(52,152,219,0.4)" stroke-width="1.5"/>
+    <rect x="0"  y="55" width="20" height="85"  rx="10" fill="url(#liquid)" opacity="0.6"/>
+    <rect x="28" y="15" width="20" height="125" rx="10" fill="rgba(52,152,219,0.2)" stroke="rgba(52,152,219,0.4)" stroke-width="1.5"/>
+    <rect x="28" y="45" width="20" height="95"  rx="10" fill="url(#liquid)" opacity="0.7"/>
+  </g>
+  <rect x="0" y="360" width="600" height="40" fill="rgba(0,0,0,0.4)"/>
+  <text x="300" y="376" font-family="'Inter',Arial,sans-serif" font-size="11" fill="rgba(255,255,255,0.6)" text-anchor="middle">INGREDIENTS CATEGORY</text>
+  <text x="300" y="392" font-family="'Inter',Arial,sans-serif" font-size="14" fill="white" text-anchor="middle" font-weight="700">Beverage Stabilizer System</text>
+</svg>

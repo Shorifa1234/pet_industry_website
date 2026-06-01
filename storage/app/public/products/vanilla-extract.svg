@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="600" height="400">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a0a2e"/><stop offset="100%" style="stop-color:#2d1b00"/>
+    </linearGradient>
+    <linearGradient id="bottle" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:rgba(101,67,33,0.9)"/><stop offset="100%" style="stop-color:rgba(139,90,43,0.7)"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="400" fill="url(#bg)"/>
+  <!-- Stars/sparkle -->
+  <g fill="rgba(255,200,50,0.3)">
+    <circle cx="80"  cy="80"  r="2"/><circle cx="150" cy="40"  r="1.5"/><circle cx="500" cy="60"  r="2"/>
+    <circle cx="520" cy="150" r="1.5"/><circle cx="60"  cy="250" r="2"/><circle cx="540" cy="300" r="1.5"/>
+    <text x="100" y="130" font-size="16" opacity="0.4">✦</text><text x="460" y="100" font-size="14" opacity="0.4">✦</text>
+    <text x="70"  y="320" font-size="12" opacity="0.3">✦</text><text x="490" y="280" font-size="10" opacity="0.3">✦</text>
+  </g>
+  <!-- Vanilla bean pods -->
+  <g transform="translate(60, 80)" opacity="0.5">
+    <path d="M10,240 Q15,120 30,20 Q35,10 40,20 Q55,120 60,240 Q35,250 10,240 Z" fill="rgba(101,67,33,0.6)" stroke="rgba(139,90,43,0.4)" stroke-width="1"/>
+    <line x1="35" y1="20" x2="35" y2="240" stroke="rgba(255,200,50,0.2)" stroke-width="1"/>
+  </g>
+  <g transform="translate(480, 60)" opacity="0.4">
+    <path d="M10,260 Q15,130 25,15 Q30,5 35,15 Q45,130 50,260 Q30,268 10,260 Z" fill="rgba(101,67,33,0.5)" stroke="rgba(139,90,43,0.3)" stroke-width="1"/>
+  </g>
+  <!-- Premium bottle -->
+  <g transform="translate(210, 30)">
+    <!-- Cap -->
+    <rect x="68" y="0" width="44" height="22" rx="6" fill="rgba(180,140,60,0.9)" stroke="rgba(220,180,80,0.5)" stroke-width="1"/>
+    <rect x="73" y="4" width="34" height="14" rx="3" fill="rgba(255,220,80,0.2)"/>
+    <!-- Neck -->
+    <rect x="72" y="22" width="36" height="35" rx="4" fill="url(#bottle)"/>
+    <!-- Shoulder -->
+    <path d="M55,57 Q40,70 38,90 L38,280 Q38,300 90,300 Q142,300 142,280 L142,90 Q140,70 125,57 Z" fill="url(#bottle)"/>
+    <path d="M55,57 Q40,70 38,90 L38,280 Q38,300 90,300 Q142,300 142,280 L142,90 Q140,70 125,57 Z" fill="none" stroke="rgba(220,180,80,0.4)" stroke-width="1.5"/>
+    <!-- Gold label -->
+    <rect x="46" y="100" width="88" height="130" rx="6" fill="rgba(180,140,60,0.3)" stroke="rgba(220,180,80,0.6)" stroke-width="1.5"/>
+    <!-- Gold stripe top -->
+    <rect x="46" y="100" width="88" height="3" rx="1" fill="rgba(220,180,80,0.6)"/>
+    <rect x="46" y="227" width="88" height="3" rx="1" fill="rgba(220,180,80,0.6)"/>
+    <text x="90" y="120" font-family="Georgia,serif" font-size="9"  fill="rgba(220,180,80,0.9)" text-anchor="middle" letter-spacing="2">PREMIUM</text>
+    <text x="90" y="138" font-family="Georgia,serif" font-size="14" fill="rgba(255,220,80,1)"   text-anchor="middle" font-weight="bold">Vanilla</text>
+    <text x="90" y="153" font-family="Georgia,serif" font-size="11" fill="rgba(255,220,80,0.9)" text-anchor="middle" font-style="italic">Extract</text>
+    <line x1="56" y1="162" x2="124" y2="162" stroke="rgba(220,180,80,0.4)" stroke-width="1"/>
+    <text x="90" y="176" font-family="Arial" font-size="8" fill="rgba(255,255,255,0.6)" text-anchor="middle">Madagascar Bourbon</text>
+    <text x="90" y="188" font-family="Arial" font-size="8" fill="rgba(255,255,255,0.6)" text-anchor="middle">Pure Vanilla Beans</text>
+    <!-- Vanilla bean illustration on label -->
+    <line x1="68" y1="215" x2="112" y2="215" stroke="rgba(101,67,33,0.8)" stroke-width="4" stroke-linecap="round"/>
+    <ellipse cx="68" cy="215" rx="4" ry="7" fill="rgba(101,67,33,0.8)"/>
+    <ellipse cx="112" cy="215" rx="4" ry="7" fill="rgba(101,67,33,0.8)"/>
+    <!-- Shine -->
+    <path d="M44,100 Q42,140 42,190" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="5" stroke-linecap="round"/>
+  </g>
+  <rect x="0" y="360" width="600" height="40" fill="rgba(0,0,0,0.4)"/>
+  <text x="300" y="376" font-family="'Inter',Arial,sans-serif" font-size="11" fill="rgba(255,255,255,0.6)" text-anchor="middle">INGREDIENTS CATEGORY</text>
+  <text x="300" y="392" font-family="'Inter',Arial,sans-serif" font-size="14" fill="white" text-anchor="middle" font-weight="700">Premium Vanilla Extract</text>
+</svg>
