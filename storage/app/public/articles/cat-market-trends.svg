@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420" width="800" height="420">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0e3460"/>
+      <stop offset="100%" style="stop-color:#1a5276"/>
+    </linearGradient>
+    <linearGradient id="chartLine" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#e67e22;stop-opacity:0.6"/>
+      <stop offset="100%" style="stop-color:#e67e22;stop-opacity:1"/>
+    </linearGradient>
+    <linearGradient id="chartFill" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#e67e22;stop-opacity:0.3"/>
+      <stop offset="100%" style="stop-color:#e67e22;stop-opacity:0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="420" fill="url(#bg)"/>
+
+  <!-- Grid lines -->
+  <g stroke="rgba(255,255,255,0.06)" stroke-width="1">
+    <line x1="0" y1="84"  x2="800" y2="84"/>
+    <line x1="0" y1="168" x2="800" y2="168"/>
+    <line x1="0" y1="252" x2="800" y2="252"/>
+    <line x1="0" y1="336" x2="800" y2="336"/>
+    <line x1="133" y1="0" x2="133" y2="420"/>
+    <line x1="266" y1="0" x2="266" y2="420"/>
+    <line x1="399" y1="0" x2="399" y2="420"/>
+    <line x1="532" y1="0" x2="532" y2="420"/>
+    <line x1="665" y1="0" x2="665" y2="420"/>
+  </g>
+
+  <!-- Chart area fill -->
+  <path d="M80,340 L160,300 L240,270 L320,240 L400,200 L480,160 L560,120 L640,90 L720,60 L720,380 L80,380 Z"
+        fill="url(#chartFill)"/>
+
+  <!-- Chart line -->
+  <polyline points="80,340 160,300 240,270 320,240 400,200 480,160 560,120 640,90 720,60"
+            fill="none" stroke="url(#chartLine)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Data points -->
+  <g fill="#e67e22" stroke="white" stroke-width="2">
+    <circle cx="80"  cy="340" r="7"/>
+    <circle cx="160" cy="300" r="7"/>
+    <circle cx="240" cy="270" r="7"/>
+    <circle cx="320" cy="240" r="7"/>
+    <circle cx="400" cy="200" r="7"/>
+    <circle cx="480" cy="160" r="7"/>
+    <circle cx="560" cy="120" r="7"/>
+    <circle cx="640" cy="90"  r="7"/>
+    <circle cx="720" cy="60"  r="9"/>
+  </g>
+
+  <!-- Arrow at end -->
+  <polygon points="730,54 750,60 730,66" fill="#e67e22"/>
+
+  <!-- "$9 Trillion" big number -->
+  <text x="80" y="180" font-family="'Inter',Arial,sans-serif" font-size="72" font-weight="900" fill="rgba(255,255,255,0.08)">$9T</text>
+
+  <!-- Up arrow icon (top right) -->
+  <circle cx="680" cy="80" r="36" fill="rgba(230,126,34,0.2)" stroke="#e67e22" stroke-width="2"/>
+  <polygon points="680,58 693,76 686,76 686,102 674,102 674,76 667,76" fill="#e67e22"/>
+
+  <!-- Category badge -->
+  <rect x="50" y="42" width="160" height="32" rx="16" fill="#e67e22"/>
+  <text x="130" y="63" font-family="'Inter',Arial,sans-serif" font-size="14" font-weight="700" fill="white" text-anchor="middle" letter-spacing="1">MARKET TRENDS</text>
+
+  <!-- Year labels -->
+  <g font-family="'Inter',Arial,sans-serif" font-size="12" fill="rgba(255,255,255,0.4)" text-anchor="middle">
+    <text x="80"  y="400">2020</text>
+    <text x="240" y="400">2022</text>
+    <text x="400" y="400">2024</text>
+    <text x="560" y="400">2026</text>
+    <text x="720" y="400">2028</text>
+  </g>
+
+  <!-- Bottom label -->
+  <rect x="0" y="390" width="800" height="30" fill="rgba(0,0,0,0.25)"/>
+  <text x="400" y="408" font-family="'Inter',Arial,sans-serif" font-size="13" fill="rgba(255,255,255,0.7)" text-anchor="middle" font-weight="600">
+    Food &amp; Beverage Industry — Market Analysis &amp; Trends
+  </text>
+</svg>
