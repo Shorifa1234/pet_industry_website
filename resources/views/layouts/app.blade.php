@@ -91,8 +91,9 @@
     <div class="container">
         <div class="row align-items-center g-3">
             <div class="col-md-4">
-                <a href="{{ route('home') }}" class="brand"><i class="fas fa-industry me-2"></i>Food<span>&Industry</span></a>
-                <div class="text-white-50" style="font-size:11px;margin-top:3px;">Food & Beverage Industry Portal</div>
+                <a href="{{ route('home') }}" class="brand d-inline-block" style="line-height:1;">
+                    <img src="{{ asset('images/logo-white.svg') }}" alt="Food &amp; Industry" style="height:52px;width:auto;">
+                </a>
             </div>
             <div class="col-md-5">
                 <form class="search-form d-flex" action="{{ route('articles.index') }}" method="GET">
@@ -153,7 +154,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4 mb-4">
-                <div style="font-size:22px;font-weight:700;color:#fff;margin-bottom:10px;"><i class="fas fa-industry me-2" style="color:var(--secondary)"></i>Food<span style="color:var(--secondary)">&Industry</span></div>
+                <div style="margin-bottom:10px;"><img src="{{ asset('images/logo-white.svg') }}" alt="Food &amp; Industry" style="height:44px;width:auto;"></div>
                 <p style="font-size:13px;line-height:1.7;">Your trusted source for food and beverage industry news, products, company directory, and events.</p>
                 <div class="mt-3">
                     <a href="#" class="btn btn-sm btn-outline-light me-2"><i class="fab fa-linkedin"></i></a>

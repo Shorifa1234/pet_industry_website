@@ -46,8 +46,8 @@
 <body>
 <div class="sidebar">
     <a href="{{ route('admin.dashboard') }}" class="brand">
-        <div class="brand-text"><i class="fas fa-industry me-2" style="color:var(--secondary)"></i>Food&Industry</div>
-        <div class="brand-sub">Admin Panel</div>
+        <img src="{{ asset('images/logo.svg') }}" alt="Food &amp; Industry" style="height:44px;width:auto;display:block;">
+        <div class="brand-sub" style="margin-top:4px;">Admin Panel</div>
     </a>
     <div class="nav-section">Main</div>
     <a href="{{ route('admin.dashboard') }}" class="nav-link {{ request()->routeIs('admin.dashboard') ? 'active' : '' }}"><i class="fas fa-tachometer-alt"></i>Dashboard</a>

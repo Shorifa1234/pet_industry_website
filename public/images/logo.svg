@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 64" width="260" height="64">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a5276;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0e3460;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Icon background: rounded square -->
+  <rect x="0" y="0" width="64" height="64" rx="10" fill="url(#bgGrad)"/>
+
+  <!-- Factory building body -->
+  <rect x="10" y="36" width="44" height="20" rx="3" fill="white"/>
+
+  <!-- Left chimney -->
+  <rect x="13" y="18" width="10" height="20" rx="2" fill="white"/>
+
+  <!-- Right chimney -->
+  <rect x="30" y="23" width="10" height="15" rx="2" fill="white"/>
+
+  <!-- Chimney caps -->
+  <rect x="11" y="16" width="14" height="4" rx="2" fill="#e67e22"/>
+  <rect x="28" y="21" width="14" height="4" rx="2" fill="#e67e22"/>
+
+  <!-- Smoke dots (orange) -->
+  <circle cx="18" cy="10" r="3.5" fill="#e67e22" opacity="0.85"/>
+  <circle cx="24" cy="6"  r="2.5" fill="#e67e22" opacity="0.65"/>
+  <circle cx="35" cy="13" r="3"   fill="#e67e22" opacity="0.75"/>
+
+  <!-- Door -->
+  <rect x="24" y="44" width="16" height="12" rx="2" fill="#1a5276"/>
+
+  <!-- Left window -->
+  <rect x="13" y="40" width="8" height="6" rx="1" fill="#1a5276"/>
+
+  <!-- Right window -->
+  <rect x="43" y="40" width="8" height="6" rx="1" fill="#1a5276"/>
+
+  <!-- Wheat / grain stalk (left of building) — food symbol -->
+  <line x1="7" y1="35" x2="7" y2="55" stroke="#e67e22" stroke-width="1.5" stroke-linecap="round"/>
+  <ellipse cx="5"  cy="32" rx="2" ry="3.5" fill="#e67e22" transform="rotate(-20 5 32)"/>
+  <ellipse cx="9"  cy="30" rx="2" ry="3.5" fill="#e67e22" transform="rotate(20 9 30)"/>
+  <ellipse cx="7"  cy="27" rx="2" ry="3.5" fill="#e67e22"/>
+
+  <!-- Thin vertical divider -->
+  <line x1="76" y1="8" x2="76" y2="56" stroke="rgba(255,255,255,0.25)" stroke-width="1.2"/>
+
+  <!-- "Food" text -->
+  <text x="88" y="34"
+        font-family="'Inter', 'Segoe UI', Arial, sans-serif"
+        font-size="28"
+        font-weight="800"
+        fill="white"
+        letter-spacing="-0.8">Food</text>
+
+  <!-- "&Industry" text — & in orange, rest white -->
+  <text x="88" y="54"
+        font-family="'Inter', 'Segoe UI', Arial, sans-serif"
+        font-size="15"
+        font-weight="600"
+        letter-spacing="0.3">
+    <tspan fill="#e67e22">&amp;</tspan><tspan fill="white">Industry Portal</tspan>
+  </text>
+</svg>
