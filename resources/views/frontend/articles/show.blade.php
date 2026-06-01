@@ -1,9 +1,75 @@
 ﻿@extends('layouts.app')
 
-@section('title', $article->meta_title ?? $article->title)
-@section('meta_description', $article->meta_description ?? $article->excerpt)
+@section('title', ($article->meta_title ?? $article->title) . ' | Food & Industry')
+@section('meta_description', $article->meta_description ?? $article->excerpt ?? Str::limit(strip_tags($article->content), 160))
+@section('meta_keywords', $article->tags ? $article->tags . ', food industry news, beverage industry' : 'food industry news, beverage industry, F&B news')
+@section('canonical', route('articles.show', $article))
+@section('og_type', 'article')
+@section('og_title', $article->meta_title ?? $article->title)
+@section('og_description', $article->meta_description ?? $article->excerpt ?? Str::limit(strip_tags($article->content), 200))
+@section('og_image', $article->featured_image ? asset('storage/'.$article->featured_image) : asset('images/logo.svg'))
+
+@push('seo')
+<meta property="article:published_time" content="{{ $article->published_at?->toIso8601String() ?? $article->created_at->toIso8601String() }}">
+<meta property="article:modified_time" content="{{ $article->updated_at->toIso8601String() }}">
+<meta property="article:author" content="{{ $article->author_name ?? $article->user?->name ?? 'Editorial Team' }}">
+@if($article->category)<meta property="article:section" content="{{ $article->category->name }}">@endif
+@if($article->tags)@foreach(explode(',', $article->tags) as $tag)<meta property="article:tag" content="{{ trim($tag) }}">@endforeach@endif
+@endpush
+
+@push('structured_data')
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "{{ addslashes($article->title) }}",
+  "description": "{{ addslashes($article->excerpt ?? Str::limit(strip_tags($article->content), 160)) }}",
+  "image": "{{ $article->featured_image ? asset('storage/'.$article->featured_image) : asset('images/logo.svg') }}",
+  "url": "{{ route('articles.show', $article) }}",
+  "datePublished": "{{ $article->published_at?->toIso8601String() ?? $article->created_at->toIso8601String() }}",
+  "dateModified": "{{ $article->updated_at->toIso8601String() }}",
+  "author": { "@type": "Person", "name": "{{ addslashes($article->author_name ?? $article->user?->name ?? 'Editorial Team') }}" },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Food & Industry Portal",
+    "logo": { "@type": "ImageObject", "url": "{{ asset('images/logo.svg') }}" }
+  },
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "{{ route('articles.show', $article) }}" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "{{ route('home') }}" },
+    { "@type": "ListItem", "position": 2, "name": "News", "item": "{{ route('articles.index') }}" },
+    @if($article->category){ "@type": "ListItem", "position": 3, "name": "{{ addslashes($article->category->name) }}", "item": "{{ route('articles.category', $article->category) }}" },
+    { "@type": "ListItem", "position": 4, "name": "{{ addslashes($article->title) }}" }
+    @else{ "@type": "ListItem", "position": 3, "name": "{{ addslashes($article->title) }}" }@endif
+  ]
+}
+</script>
+@endpush
 
 @section('content')
+
+{{-- Breadcrumb --}}
+<div style="background:var(--light-bg);border-bottom:1px solid var(--border);padding:8px 0;font-size:12px;">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <a href="{{ route('home') }}" style="color:var(--primary);text-decoration:none;">Home</a>
+            <span class="mx-1 text-muted">/</span>
+            <a href="{{ route('articles.index') }}" style="color:var(--primary);text-decoration:none;">News</a>
+            @if($article->category)
+            <span class="mx-1 text-muted">/</span>
+            <a href="{{ route('articles.category', $article->category) }}" style="color:var(--primary);text-decoration:none;">{{ $article->category->name }}</a>
+            @endif
+            <span class="mx-1 text-muted">/</span>
+            <span class="text-muted">{{ Str::limit($article->title, 50) }}</span>
+        </nav>
+    </div>
+</div>
 
 <div style="background:var(--primary);color:#fff;padding:25px 0;">
     <div class="container">

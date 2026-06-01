@@ -1,6 +1,70 @@
 ﻿@extends('layouts.app')
-@section('title', $event->title)
+@section('title', $event->title . ' | Food & Industry Events')
+@section('meta_description', Str::limit(strip_tags($event->short_description ?? $event->description ?? $event->title . ' - ' . $event->start_date->format('F j, Y') . ($event->city ? ', '.$event->city : '')), 160))
+@section('meta_keywords', $event->title . ', food industry event, beverage event, ' . ($event->event_type ?? 'F&B event') . ($event->city ? ', '.$event->city : ''))
+@section('canonical', route('events.show', $event))
+@section('og_title', $event->title)
+@section('og_description', Str::limit(strip_tags($event->short_description ?? $event->description ?? ''), 200))
+@section('og_image', $event->featured_image ? asset('storage/'.$event->featured_image) : asset('images/logo.svg'))
+
+@push('structured_data')
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Event",
+  "name": "{{ addslashes($event->title) }}",
+  "startDate": "{{ $event->start_date->toIso8601String() }}"
+  @if($event->end_date),"endDate": "{{ $event->end_date->toIso8601String() }}"@endif
+  @if($event->short_description ?? $event->description),"description": "{{ addslashes(Str::limit(strip_tags($event->short_description ?? $event->description), 300)) }}"@endif
+  @if($event->featured_image),"image": "{{ asset('storage/'.$event->featured_image) }}"@endif
+  ,"url": "{{ route('events.show', $event) }}"
+  ,"eventStatus": "{{ $event->status === 'cancelled' ? 'https://schema.org/EventCancelled' : 'https://schema.org/EventScheduled' }}"
+  ,"eventAttendanceMode": "{{ ($event->event_type === 'webinar' || $event->event_type === 'virtual') ? 'https://schema.org/OnlineEventAttendanceMode' : 'https://schema.org/OfflineEventAttendanceMode' }}"
+  @if($event->venue || $event->city),"location": {
+    "@type": "{{ ($event->event_type === 'webinar' || $event->event_type === 'virtual') ? 'VirtualLocation' : 'Place' }}"
+    @if($event->venue),"name": "{{ addslashes($event->venue) }}"@endif
+    @if($event->city),"address": {
+      "@type": "PostalAddress",
+      "addressLocality": "{{ addslashes($event->city) }}"
+      @if($event->country),"addressCountry": "{{ addslashes($event->country) }}"@endif
+    }@endif
+  }@endif
+  @if($event->organizer),"organizer": { "@type": "Organization", "name": "{{ addslashes($event->organizer) }}" }@endif
+  ,"offers": {
+    "@type": "Offer",
+    "price": "{{ $event->is_free ? '0' : $event->price }}",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/InStock"
+    @if($event->registration_url),"url": "{{ $event->registration_url }}"@endif
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "{{ route('home') }}" },
+    { "@type": "ListItem", "position": 2, "name": "Events", "item": "{{ route('events.index') }}" },
+    { "@type": "ListItem", "position": 3, "name": "{{ addslashes($event->title) }}" }
+  ]
+}
+</script>
+@endpush
+
 @section('content')
+{{-- Breadcrumb --}}
+<div style="background:var(--light-bg);border-bottom:1px solid var(--border);padding:8px 0;font-size:12px;">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <a href="{{ route('home') }}" style="color:var(--primary);text-decoration:none;">Home</a>
+            <span class="mx-1 text-muted">/</span>
+            <a href="{{ route('events.index') }}" style="color:var(--primary);text-decoration:none;">Events</a>
+            <span class="mx-1 text-muted">/</span>
+            <span class="text-muted">{{ Str::limit($event->title, 50) }}</span>
+        </nav>
+    </div>
+</div>
 <div style="background:var(--primary);color:#fff;padding:25px 0;">
     <div class="container">
         <span style="background:var(--secondary);color:#fff;font-size:11px;padding:3px 12px;border-radius:3px;text-transform:uppercase;font-weight:700;">{{ $event->event_type }}</span>

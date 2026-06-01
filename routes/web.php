@@ -20,6 +20,9 @@ use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\Admin;
 
+// Sitemap & SEO
+Route::get('/sitemap.xml', [App\Http\Controllers\SitemapController::class, 'index'])->name('sitemap');
+
 // Frontend Routes
 Route::get('/', [HomeController::class, 'index'])->name('home');
 

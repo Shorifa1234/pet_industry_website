@@ -1,6 +1,54 @@
 ﻿@extends('layouts.app')
-@section('title', $product->meta_title ?? $product->name)
+@section('title', ($product->meta_title ?? $product->name) . ' | Food & Industry')
+@section('meta_description', $product->meta_description ?? $product->short_description ?? Str::limit(strip_tags($product->description ?? ''), 160))
+@section('meta_keywords', ($product->tags ? $product->tags.', ' : '') . 'food product, beverage ingredient, F&B product')
+@section('canonical', route('products.show', $product))
+@section('og_type', 'product')
+@section('og_title', $product->meta_title ?? $product->name)
+@section('og_description', $product->meta_description ?? $product->short_description ?? '')
+@section('og_image', $product->featured_image ? asset('storage/'.$product->featured_image) : asset('images/logo.svg'))
+
+@push('structured_data')
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "{{ addslashes($product->name) }}",
+  "description": "{{ addslashes($product->short_description ?? Str::limit(strip_tags($product->description ?? ''), 200)) }}",
+  "image": "{{ $product->featured_image ? asset('storage/'.$product->featured_image) : asset('images/logo.svg') }}",
+  "url": "{{ route('products.show', $product) }}"
+  @if($product->brand),"brand": { "@type": "Brand", "name": "{{ addslashes($product->brand) }}" }@endif
+  @if($product->sku),"sku": "{{ $product->sku }}"@endif
+  @if($product->company),"manufacturer": { "@type": "Organization", "name": "{{ addslashes($product->company->name) }}" }@endif
+  @if($product->category),"category": "{{ addslashes($product->category->name) }}"@endif
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "{{ route('home') }}" },
+    { "@type": "ListItem", "position": 2, "name": "Products", "item": "{{ route('products.index') }}" },
+    { "@type": "ListItem", "position": 3, "name": "{{ addslashes($product->name) }}" }
+  ]
+}
+</script>
+@endpush
+
 @section('content')
+{{-- Breadcrumb --}}
+<div style="background:var(--light-bg);border-bottom:1px solid var(--border);padding:8px 0;font-size:12px;">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <a href="{{ route('home') }}" style="color:var(--primary);text-decoration:none;">Home</a>
+            <span class="mx-1 text-muted">/</span>
+            <a href="{{ route('products.index') }}" style="color:var(--primary);text-decoration:none;">Products</a>
+            <span class="mx-1 text-muted">/</span>
+            <span class="text-muted">{{ Str::limit($product->name, 50) }}</span>
+        </nav>
+    </div>
+</div>
 <div style="background:var(--primary);color:#fff;padding:25px 0;">
     <div class="container">
         @if($product->category)<span class="category-badge" style="background:var(--secondary);">{{ $product->category->name }}</span>@endif

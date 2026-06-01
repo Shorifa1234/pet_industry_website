@@ -4,8 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    {{-- Primary Meta --}}
     <title>@yield('title', config('app.name'))</title>
-    <meta name="description" content="@yield('meta_description', 'Food & Beverage Industry Portal - News, Products, Companies, Events')">
+    <meta name="description" content="@yield('meta_description', 'Food & Beverage Industry Portal - Latest news, products, company directory and events for the global food & beverage sector.')">
+    <meta name="keywords" content="@yield('meta_keywords', 'food industry, beverage industry, food news, food products, food companies, food events, F&B industry')">
+    <meta name="robots" content="@yield('meta_robots', 'index, follow')">
+    <link rel="canonical" href="@yield('canonical', url()->current())">
+
+    {{-- Open Graph --}}
+    <meta property="og:site_name" content="Food &amp; Industry Portal">
+    <meta property="og:type" content="@yield('og_type', 'website')">
+    <meta property="og:title" content="@yield('og_title', config('app.name'))">
+    <meta property="og:description" content="@yield('og_description', 'Food & Beverage Industry Portal - Latest news, products, company directory and events.')">
+    <meta property="og:url" content="@yield('canonical', url()->current())">
+    <meta property="og:image" content="@yield('og_image', asset('images/logo.svg'))">
+    <meta property="og:locale" content="en_US">
+
+    {{-- Twitter Card --}}
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="@yield('og_title', config('app.name'))">
+    <meta name="twitter:description" content="@yield('og_description', 'Food & Beverage Industry Portal - Latest news, products, company directory and events.')">
+    <meta name="twitter:image" content="@yield('og_image', asset('images/logo.svg'))">
+
+    @stack('seo')
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -198,5 +220,6 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 @stack('scripts')
+@stack('structured_data')
 </body>
 </html>

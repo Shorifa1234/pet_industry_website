@@ -1,6 +1,59 @@
 ﻿@extends('layouts.app')
-@section('title', $company->name . ' - Company Profile')
+@section('title', $company->name . ' - Company Profile | Food & Industry')
+@section('meta_description', $company->meta_description ?? Str::limit(strip_tags($company->description ?? $company->name . ' - food & beverage company profile, products and contact information.'), 160))
+@section('meta_keywords', $company->name . ', ' . ($company->industry_type ?? 'food company') . ', food & beverage company, F&B supplier')
+@section('canonical', route('companies.show', $company))
+@section('og_title', $company->name . ' - Company Profile')
+@section('og_description', $company->meta_description ?? Str::limit(strip_tags($company->description ?? ''), 200))
+@section('og_image', $company->logo ? asset('storage/'.$company->logo) : asset('images/logo.svg'))
+
+@push('structured_data')
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "{{ addslashes($company->name) }}",
+  "url": "{{ route('companies.show', $company) }}"
+  @if($company->logo),"logo": "{{ asset('storage/'.$company->logo) }}"@endif
+  @if($company->website),"sameAs": ["{{ $company->website }}"]@endif
+  @if($company->email),"email": "{{ $company->email }}"@endif
+  @if($company->phone),"telephone": "{{ $company->phone }}"@endif
+  @if($company->address || $company->city),"address": {
+    "@type": "PostalAddress"
+    @if($company->address),"streetAddress": "{{ addslashes($company->address) }}"@endif
+    @if($company->city),"addressLocality": "{{ addslashes($company->city) }}"@endif
+    @if($company->state),"addressRegion": "{{ addslashes($company->state) }}"@endif
+    @if($company->country),"addressCountry": "{{ addslashes($company->country) }}"@endif
+  }@endif
+  @if($company->description),"description": "{{ addslashes(Str::limit(strip_tags($company->description), 300)) }}"@endif
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "{{ route('home') }}" },
+    { "@type": "ListItem", "position": 2, "name": "Directory", "item": "{{ route('companies.index') }}" },
+    { "@type": "ListItem", "position": 3, "name": "{{ addslashes($company->name) }}" }
+  ]
+}
+</script>
+@endpush
+
 @section('content')
+{{-- Breadcrumb --}}
+<div style="background:var(--light-bg);border-bottom:1px solid var(--border);padding:8px 0;font-size:12px;">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <a href="{{ route('home') }}" style="color:var(--primary);text-decoration:none;">Home</a>
+            <span class="mx-1 text-muted">/</span>
+            <a href="{{ route('companies.index') }}" style="color:var(--primary);text-decoration:none;">Directory</a>
+            <span class="mx-1 text-muted">/</span>
+            <span class="text-muted">{{ $company->name }}</span>
+        </nav>
+    </div>
+</div>
 <div style="background:var(--primary);color:#fff;padding:30px 0;">
     <div class="container">
         <div class="d-flex align-items-center">

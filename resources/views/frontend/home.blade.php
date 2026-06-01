@@ -1,6 +1,41 @@
 @extends('layouts.app')
 
-@section('title', 'Food & Beverage Industry Portal - Home')
+@section('title', 'Food & Beverage Industry Portal - News, Products, Companies & Events')
+@section('meta_description', 'Your trusted source for food & beverage industry news, product innovations, company directory and upcoming events worldwide. Stay ahead in the F&B sector.')
+@section('meta_keywords', 'food industry portal, beverage industry news, food products, food companies directory, F&B events, food technology, food ingredients')
+@section('canonical', route('home'))
+
+@push('structured_data')
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Food & Industry Portal",
+  "url": "{{ route('home') }}",
+  "description": "Your trusted source for food & beverage industry news, product innovations, company directory and upcoming events.",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": { "@type": "EntryPoint", "urlTemplate": "{{ route('articles.index') }}?search={search_term_string}" },
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Food & Industry Portal",
+  "url": "{{ route('home') }}",
+  "logo": "{{ asset('images/logo.svg') }}",
+  "sameAs": [],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "info@foodindustry.com",
+    "contactType": "customer service"
+  }
+}
+</script>
+@endpush
 
 @section('content')
 
