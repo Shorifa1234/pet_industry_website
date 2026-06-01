@@ -1,0 +1,197 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 320" width="440" height="320">
+
+  <!-- Background glow rings -->
+  <circle cx="220" cy="160" r="155" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="30"/>
+  <circle cx="220" cy="160" r="105" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="20"/>
+
+  <!-- ======================== -->
+  <!-- FACTORY / BUILDING (left) -->
+  <!-- ======================== -->
+  <g opacity="0.92">
+    <!-- Main building body -->
+    <rect x="22" y="160" width="110" height="110" rx="4" fill="rgba(255,255,255,0.15)"/>
+    <!-- Building windows -->
+    <rect x="32"  y="172" width="18" height="14" rx="2" fill="rgba(255,255,255,0.5)"/>
+    <rect x="58"  y="172" width="18" height="14" rx="2" fill="rgba(255,255,255,0.5)"/>
+    <rect x="84"  y="172" width="18" height="14" rx="2" fill="rgba(255,255,255,0.5)"/>
+    <rect x="32"  y="196" width="18" height="14" rx="2" fill="rgba(255,255,255,0.4)"/>
+    <rect x="58"  y="196" width="18" height="14" rx="2" fill="rgba(255,255,255,0.4)"/>
+    <rect x="84"  y="196" width="18" height="14" rx="2" fill="rgba(255,255,255,0.4)"/>
+    <!-- Door -->
+    <rect x="60"  y="236" width="34" height="34" rx="3" fill="rgba(255,255,255,0.25)"/>
+    <!-- Left chimney -->
+    <rect x="35"  y="110" width="18" height="52" rx="3" fill="rgba(255,255,255,0.2)"/>
+    <!-- Right chimney -->
+    <rect x="65"  y="125" width="18" height="37" rx="3" fill="rgba(255,255,255,0.2)"/>
+    <!-- Third chimney -->
+    <rect x="95"  y="118" width="14" height="44" rx="3" fill="rgba(255,255,255,0.15)"/>
+    <!-- Chimney tops (orange) -->
+    <rect x="33"  y="106" width="22" height="6" rx="2" fill="#e67e22"/>
+    <rect x="63"  y="121" width="22" height="6" rx="2" fill="#e67e22"/>
+    <rect x="93"  y="114" width="18" height="6" rx="2" fill="#e67e22"/>
+    <!-- Smoke puffs -->
+    <circle cx="44"  cy="94"  r="9"  fill="rgba(255,255,255,0.12)"/>
+    <circle cx="54"  cy="85"  r="7"  fill="rgba(255,255,255,0.09)"/>
+    <circle cx="64"  cy="94"  r="6"  fill="rgba(255,255,255,0.08)"/>
+    <circle cx="74"  cy="108" r="8"  fill="rgba(255,255,255,0.1)"/>
+    <circle cx="83"  cy="100" r="5"  fill="rgba(255,255,255,0.07)"/>
+    <circle cx="102" cy="100" r="7"  fill="rgba(255,255,255,0.09)"/>
+    <!-- Orange smoke dots -->
+    <circle cx="44"  cy="94"  r="4"  fill="#e67e22" opacity="0.5"/>
+    <circle cx="74"  cy="106" r="3"  fill="#e67e22" opacity="0.4"/>
+    <circle cx="102" cy="99"  r="3.5" fill="#e67e22" opacity="0.45"/>
+    <!-- Roof line -->
+    <rect x="22" y="157" width="110" height="5" rx="2" fill="rgba(255,255,255,0.3)"/>
+  </g>
+
+  <!-- ======================== -->
+  <!-- BEVERAGE BOTTLE (center) -->
+  <!-- ======================== -->
+  <g transform="translate(175, 55)" opacity="0.95">
+    <!-- Bottle cap -->
+    <rect x="28" y="0" width="24" height="10" rx="3" fill="#e67e22"/>
+    <!-- Bottle neck -->
+    <rect x="31" y="10" width="18" height="28" rx="4" fill="rgba(255,255,255,0.3)"/>
+    <!-- Bottle shoulder -->
+    <path d="M24,38 Q20,54 18,70 L62,70 Q60,54 56,38 Z" fill="rgba(255,255,255,0.25)"/>
+    <!-- Bottle body -->
+    <rect x="18" y="70" width="44" height="110" rx="6" fill="rgba(255,255,255,0.2)"/>
+    <!-- Label -->
+    <rect x="21" y="90" width="38" height="55" rx="3" fill="rgba(255,255,255,0.35)"/>
+    <rect x="24" y="94" width="32" height="6" rx="1" fill="#e67e22" opacity="0.8"/>
+    <rect x="24" y="104" width="32" height="3" rx="1" fill="rgba(255,255,255,0.6)"/>
+    <rect x="24" y="110" width="22" height="3" rx="1" fill="rgba(255,255,255,0.5)"/>
+    <rect x="24" y="116" width="28" height="3" rx="1" fill="rgba(255,255,255,0.5)"/>
+    <rect x="24" y="128" width="16" height="10" rx="2" fill="#e67e22" opacity="0.7"/>
+    <!-- Bottle bottom -->
+    <rect x="18" y="180" width="44" height="8" rx="4" fill="rgba(255,255,255,0.3)"/>
+    <!-- Shine effect -->
+    <rect x="22" y="75" width="8" height="100" rx="4" fill="rgba(255,255,255,0.1)"/>
+  </g>
+
+  <!-- ======================== -->
+  <!-- FOOD CAN / TIN (right of bottle) -->
+  <!-- ======================== -->
+  <g transform="translate(260, 120)" opacity="0.9">
+    <!-- Can body -->
+    <rect x="0" y="14" width="52" height="90" rx="6" fill="rgba(255,255,255,0.18)"/>
+    <!-- Can top -->
+    <ellipse cx="26" cy="14" rx="26" ry="8" fill="rgba(255,255,255,0.35)"/>
+    <!-- Can bottom -->
+    <ellipse cx="26" cy="104" rx="26" ry="8" fill="rgba(255,255,255,0.25)"/>
+    <!-- Can label -->
+    <rect x="4" y="28" width="44" height="62" rx="2" fill="rgba(255,255,255,0.22)"/>
+    <!-- Label stripe -->
+    <rect x="4" y="28" width="44" height="16" rx="2" fill="#e67e22" opacity="0.75"/>
+    <!-- Label text lines -->
+    <rect x="8" y="52" width="36" height="4" rx="1" fill="rgba(255,255,255,0.55)"/>
+    <rect x="8" y="60" width="28" height="4" rx="1" fill="rgba(255,255,255,0.4)"/>
+    <rect x="8" y="68" width="32" height="4" rx="1" fill="rgba(255,255,255,0.4)"/>
+    <!-- Pull ring -->
+    <circle cx="26" cy="8" r="5" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2"/>
+    <circle cx="26" cy="3" r="3" fill="rgba(255,255,255,0.4)"/>
+  </g>
+
+  <!-- ======================== -->
+  <!-- WHEAT STALKS (bottom center) -->
+  <!-- ======================== -->
+  <g opacity="0.85">
+    <!-- Stalk 1 -->
+    <line x1="148" y1="270" x2="155" y2="200" stroke="rgba(255,255,255,0.4)" stroke-width="2" stroke-linecap="round"/>
+    <ellipse cx="151" cy="192" rx="5" ry="9"  fill="#e67e22" opacity="0.8" transform="rotate(-15 151 192)"/>
+    <ellipse cx="157" cy="186" rx="5" ry="9"  fill="#e67e22" opacity="0.7" transform="rotate(15 157 186)"/>
+    <ellipse cx="153" cy="178" rx="5" ry="10" fill="#e67e22" opacity="0.85"/>
+    <!-- Stalk 2 -->
+    <line x1="163" y1="270" x2="168" y2="195" stroke="rgba(255,255,255,0.35)" stroke-width="2" stroke-linecap="round"/>
+    <ellipse cx="164" cy="187" rx="4" ry="8"  fill="#e67e22" opacity="0.7" transform="rotate(-10 164 187)"/>
+    <ellipse cx="170" cy="182" rx="4" ry="8"  fill="#e67e22" opacity="0.65" transform="rotate(18 170 182)"/>
+    <ellipse cx="166" cy="174" rx="4" ry="9"  fill="#e67e22" opacity="0.8"/>
+    <!-- Stalk 3 (taller) -->
+    <line x1="136" y1="270" x2="140" y2="188" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" stroke-linecap="round"/>
+    <ellipse cx="136" cy="180" rx="4" ry="8"  fill="#e67e22" opacity="0.6" transform="rotate(-20 136 180)"/>
+    <ellipse cx="142" cy="175" rx="4" ry="8"  fill="#e67e22" opacity="0.55" transform="rotate(12 142 175)"/>
+    <ellipse cx="138" cy="167" rx="4" ry="9"  fill="#e67e22" opacity="0.7"/>
+    <!-- Ground line -->
+    <line x1="120" y1="270" x2="200" y2="270" stroke="rgba(255,255,255,0.15)" stroke-width="1.5"/>
+  </g>
+
+  <!-- ======================== -->
+  <!-- NEWS / ARTICLE CARD (right side) -->
+  <!-- ======================== -->
+  <g transform="translate(340, 60)" opacity="0.9">
+    <!-- Card shadow -->
+    <rect x="4" y="4" width="88" height="115" rx="7" fill="rgba(0,0,0,0.15)"/>
+    <!-- Card body -->
+    <rect x="0" y="0" width="88" height="115" rx="7" fill="rgba(255,255,255,0.2)"/>
+    <!-- Image placeholder -->
+    <rect x="0" y="0" width="88" height="42" rx="7" fill="rgba(255,255,255,0.15)"/>
+    <rect x="0" y="35" width="88" height="7" fill="rgba(255,255,255,0.15)"/>
+    <!-- Image icon -->
+    <rect x="28" y="8" width="32" height="26" rx="3" fill="rgba(255,255,255,0.2)"/>
+    <circle cx="36" cy="18" r="5" fill="rgba(255,255,255,0.3)"/>
+    <polygon points="28,34 40,22 52,30 60,24 88,34" fill="rgba(255,255,255,0.15)"/>
+    <!-- Category badge -->
+    <rect x="8" y="30" width="36" height="10" rx="3" fill="#e67e22"/>
+    <rect x="11" y="33" width="20" height="3" rx="1" fill="rgba(255,255,255,0.8)"/>
+    <!-- Title lines -->
+    <rect x="8" y="52" width="72" height="6" rx="2" fill="rgba(255,255,255,0.6)"/>
+    <rect x="8" y="62" width="60" height="6" rx="2" fill="rgba(255,255,255,0.5)"/>
+    <!-- Body text lines -->
+    <rect x="8" y="76" width="72" height="3" rx="1" fill="rgba(255,255,255,0.3)"/>
+    <rect x="8" y="82" width="65" height="3" rx="1" fill="rgba(255,255,255,0.3)"/>
+    <rect x="8" y="88" width="50" height="3" rx="1" fill="rgba(255,255,255,0.3)"/>
+    <!-- Meta -->
+    <circle cx="14" cy="104" r="5" fill="rgba(255,255,255,0.25)"/>
+    <rect x="23" y="101" width="30" height="3" rx="1" fill="rgba(255,255,255,0.3)"/>
+    <rect x="23" y="107" width="22" height="3" rx="1" fill="rgba(255,255,255,0.25)"/>
+  </g>
+
+  <!-- ======================== -->
+  <!-- STATS BADGES (floating) -->
+  <!-- ======================== -->
+  <!-- Badge: News -->
+  <g transform="translate(22, 60)">
+    <rect x="0" y="0" width="90" height="34" rx="17" fill="rgba(255,255,255,0.15)" stroke="rgba(255,255,255,0.25)" stroke-width="1"/>
+    <circle cx="17" cy="17" r="11" fill="#e67e22" opacity="0.85"/>
+    <text x="11" y="21" font-family="Arial" font-size="10" fill="white" font-weight="bold">📰</text>
+    <text x="32" y="12" font-family="'Inter',Arial,sans-serif" font-size="9" fill="rgba(255,255,255,0.7)" font-weight="600">LATEST NEWS</text>
+    <text x="32" y="24" font-family="'Inter',Arial,sans-serif" font-size="12" fill="white" font-weight="800">Industry Updates</text>
+  </g>
+
+  <!-- Badge: Products -->
+  <g transform="translate(330, 195)">
+    <rect x="0" y="0" width="100" height="34" rx="17" fill="rgba(255,255,255,0.15)" stroke="rgba(255,255,255,0.25)" stroke-width="1"/>
+    <circle cx="17" cy="17" r="11" fill="#e67e22" opacity="0.85"/>
+    <text x="32" y="12" font-family="'Inter',Arial,sans-serif" font-size="9" fill="rgba(255,255,255,0.7)" font-weight="600">PRODUCTS</text>
+    <text x="32" y="24" font-family="'Inter',Arial,sans-serif" font-size="12" fill="white" font-weight="800">1,000+ Listed</text>
+  </g>
+
+  <!-- Badge: Companies -->
+  <g transform="translate(22, 270)">
+    <rect x="0" y="0" width="105" height="34" rx="17" fill="rgba(255,255,255,0.15)" stroke="rgba(255,255,255,0.25)" stroke-width="1"/>
+    <circle cx="17" cy="17" r="11" fill="#e67e22" opacity="0.85"/>
+    <text x="32" y="12" font-family="'Inter',Arial,sans-serif" font-size="9" fill="rgba(255,255,255,0.7)" font-weight="600">COMPANIES</text>
+    <text x="32" y="24" font-family="'Inter',Arial,sans-serif" font-size="12" fill="white" font-weight="800">500+ Directory</text>
+  </g>
+
+  <!-- Badge: Events -->
+  <g transform="translate(310, 268)">
+    <rect x="0" y="0" width="95" height="34" rx="17" fill="rgba(255,255,255,0.15)" stroke="rgba(255,255,255,0.25)" stroke-width="1"/>
+    <circle cx="17" cy="17" r="11" fill="#e67e22" opacity="0.85"/>
+    <text x="32" y="12" font-family="'Inter',Arial,sans-serif" font-size="9" fill="rgba(255,255,255,0.7)" font-weight="600">EVENTS</text>
+    <text x="32" y="24" font-family="'Inter',Arial,sans-serif" font-size="12" fill="white" font-weight="800">Global Expos</text>
+  </g>
+
+  <!-- ======================== -->
+  <!-- CONNECTING DOTS -->
+  <!-- ======================== -->
+  <g opacity="0.3">
+    <circle cx="132" cy="160" r="3" fill="white"/>
+    <circle cx="175" cy="140" r="2" fill="white"/>
+    <circle cx="260" cy="150" r="2.5" fill="white"/>
+    <circle cx="330" cy="130" r="2" fill="white"/>
+    <line x1="132" y1="160" x2="175" y2="150" stroke="white" stroke-width="0.8" stroke-dasharray="4,4"/>
+    <line x1="260" y1="155" x2="338" y2="140" stroke="white" stroke-width="0.8" stroke-dasharray="4,4"/>
+  </g>
+
+</svg>

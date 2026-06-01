@@ -15,7 +15,7 @@
                 <a href="{{ route('companies.index') }}" class="btn btn-lg btn-outline-light">Browse Directory</a>
             </div>
             <div class="col-md-5 d-none d-md-block text-center">
-                <div style="font-size:120px;opacity:0.3;"><i class="fas fa-industry"></i></div>
+                <img src="{{ asset('images/hero-illustration.svg') }}" alt="Food &amp; Beverage Industry" style="width:100%;max-width:440px;filter:drop-shadow(0 8px 24px rgba(0,0,0,0.25));">
             </div>
         </div>
     </div>
